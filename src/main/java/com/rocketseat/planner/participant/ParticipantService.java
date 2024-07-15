@@ -13,7 +13,7 @@ public class ParticipantService {
     @Autowired
     private ParticipantRepository repository;
 
-    public void registerParticipantToEvent(List<String> participantToInvite, Trip trip){
+    public void registerParticipantsToEvent(List<String> participantToInvite, Trip trip){
         List<Participant> participants = participantToInvite.stream().map(email -> new Participant(email, trip)).toList();
 
         this.repository.saveAll(participants);
